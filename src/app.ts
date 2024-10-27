@@ -3,6 +3,7 @@ import cors from "cors";
 import colors from 'colors';
 import helmet from "helmet";
 import express from "express";
+import router from './routes';
 import { logger } from "./config/logger";
 import { corsOptions } from "./middlewares/corsMiddleware";
 import { notFoundHandler } from './middlewares/notFounHandler';
@@ -38,10 +39,8 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
   next();
 });
 
-// Sample Route
-app.get("/", (req: express.Request, res: express.Response) => {
-  res.status(200).send("Hello, World!");
-});
+// Handle API Routes
+app.use("/api", router);
 
 // Handle 404 errors
 app.use(notFoundHandler);
