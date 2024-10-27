@@ -33,7 +33,7 @@ app.use((req: express.Request, res: express.Response, next: express.NextFunction
     const diff = process.hrtime(startTime);
     const responseTime = (diff[0] * 1e3 + diff[1] * 1e-6).toFixed(2);
     logger.info(
-      `${'METHOD:'.blue} ${req.method.yellow} - ${'URL:'.blue} ${req.originalUrl.yellow} - ${'STATUS:'.blue} ${fetchStatus()} - ${'Response Time:'.blue} ${responseTime.magenta.underline} ${'ms'.magenta.underline}`
+      `${'METHOD:'.blue} ${req.method.yellow} - ${'URL:'.blue} ${req.originalUrl.yellow} - ${'STATUS:'.blue} ${fetchStatus()} - ${'Response Time:'.blue} ${responseTime.magenta} ${'ms'.magenta}`
     );
   });
   next();
